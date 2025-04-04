@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfaz Gráfica del Escáner de Red</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+  
+
+    
+</head>
+
+<body>
+    <div class="background">
+        <div class="container">
+
+            <!-- Logo del programa (botón para regresar al inicio) -->
+            <div class="logo">
+                <a href="#top"><img src="{{ url_for('static', filename='imagenes/Logo.png') }}" alt="Logo del programa"></a>
+            </div>
+
+            <h1>Escáner de Red</h1>
+
+            <!-- Mostrar el mensaje de error si existe -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <ul>
+                        {% for category, message in messages %}
+                            <li style="color: red;">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+
+            <!-- Formulario para escaneo -->
+            <form id="formulario-escaneo" action="/scan" method="POST">
+                <!-- Campo para el rango de IPs en formato CIDR -->
+                <div class="input-field">
+                    <label for="rango-ip">Ingrese el rango de IP (CIDR):</label>
+                    <input type="text" id="rango-ip" name="rango_ip" placeholder="192.168.0.0/24" required>
+                </div>
+
+                <!-- Campo para seleccionar el tipo de escaneo -->
+                <div class="input-field">
+                    <label for="tipo-escaneo">Tipo de Escaneo:</label>
+                    <select id="tipo-escaneo" name="tipo_escaneo">
+                        <option value="conectividad">Conectividad</option>
+                        <option value="vulnerabilidades">Vulnerabilidades</option>
+                    </select>
+                </div>
+
+                <!-- Opción para enviar el reporte por correo -->
+                <div class="input-field">
+                    <label for="enviar-reporte">¿Enviar reporte por correo?</label>
+                    <select id="enviar-reporte" name="enviar_reporte" onchange="toggleEmailInput()">
+                        <option value="no">No</option>
+                        <option value="si">Sí</option>
+                    </select>
+                </div>
+
+                <!-- Campo para ingresar el correo electrónico (oculto por defecto) -->
+                <div class="input-field" id="correo-container" style="display: none;">
+                    <label for="correo">Ingrese su correo Gmail:</label>
+                    <input type="email" id="correo" name="correo" placeholder="example@gmail.com" value="{{ request.form.get('correo', '') }}">
+                </div>
+
+                <!-- Botón para iniciar el escaneo -->
+                <button type="submit">Iniciar Escaneo</button>
+            </form>
+
+            <!-- Información adicional -->
+            <div class="informacion parteA" style="background-image: url('{{ url_for('static', filename='imagenes/Abou us.png') }}'); background-size: cover;">
+
+                <h2>¿Qué es UNIMap?</h2>
+                <p>Es un programa simple pero eficiente que escanea las conectividades y vulnerabilidades de los dispositivos en una red, brindando información y mitigación de las vulnerabilidades detectadas.</p>
+            </div>
+
+
+            <div class="informacion parteB" style="background-image: url('{{ url_for('static', filename='imagenes/Logo.png') }}'); background-size: cover;">
+
+                <h2>Cerca del programa</h2>
+                <p>Es un proyecto de código abierto que se utiliza para análisis de seguridad en redes, desarrollado y mantenido por la comunidad.</p>
+            </div>
+
+            <div class="informacion parteC" style="background-image: url('{{ url_for('static', filename='imagenes/Panel.png') }}'); background-size: cover;">
+
+                <h2>¿Qué es CIDR?</h2>
+                <p>El CIDR (Classless Inter-Domain Routing) es un método para asignar direcciones IP y gestionar el enrutamiento de manera más eficiente que el sistema tradicional basado en clases. Permite usar máscaras de subred más flexibles y ajustar el tamaño de los bloques de direcciones IP según las necesidades específicas, optimizando así el uso de las direcciones disponibles.</p>
+                <a href="https://aws.amazon.com/es/what-is/cidr/" target="_blank" class="verMas">Ver más</a>
+            </div>
+
+
+            <div class="informacion parteD" style="background-image: url('{{ url_for('static', filename='imagenes/Panel.png') }}'); background-size: cover;">
+
+                <h2>Nmap</h2>
+                <p>Nmap es una herramienta de código abierto para explorar redes, identificar dispositivos, puertos abiertos y servicios en ejecución, utilizada principalmente en auditorías de seguridad.</p>
+                <a href="https://nmap.org/man/es/index.html" target="_blank" class="verMas">Ver más</a>
+            </div>
+
+            <div class="informacion parteE">
+                
+                <h2>About us</h2>
+                <p>Somos un grupo de estudiantes de la carrera de Ingenieria de Telecomunicaciones y Ciberseguridad de la Universidad Nacional de Ingenieria el cual propuso este proyecto para el curso de Programación Orientada a Objetos (POO) con la finalidad de analizar las vulnerabilidadesde de una red en un entorno empresarial, el grupo se conforma por Luis Villegas, Zahid Palomino, Fatima Toscano y Adrian Mayta. .</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JavaScript para manejar la visibilidad del campo de correo -->
+    <script>
+        // Función para mostrar/ocultar el campo de correo según la elección del usuario
+        function toggleEmailInput() {
+            const enviarReporte = document.getElementById('enviar-reporte').value;
+            const correoContainer = document.getElementById('correo-container');
+            if (enviarReporte === 'si') {
+                correoContainer.style.display = 'block';
+            } else {
+                correoContainer.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

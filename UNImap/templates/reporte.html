@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados del Escaneo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Resultados del Escaneo</h1>
+        <p>{{ mensaje }}</p>
+
+        <!-- Mostrar el reporte en una tabla (opcional) -->
+        <div id="reporte">
+            <iframe src="{{ url_for('static', filename='reporte_vulnerabilidades.html') }}" width="100%" height="600px"></iframe>
+        </div>
+
+        <!-- Botón para regresar al formulario -->
+        <a href="/" class="button">Volver al Escáner</a>
+    </div>
+</body>
+</html>
