@@ -1,0 +1,95 @@
+/* Fondo de pantalla */
+body {
+    background: url('background.jpg') no-repeat center center/cover;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 20px;
+}
+
+/* Fondo oscuro para el formulario */
+.background {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenedor del formulario */
+.container {
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+/* Campos de entrada */
+.input-field {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: #ddd;
+}
+
+/* Efecto de enfoque */
+input:focus,
+select:focus {
+    border: 2px solid #4CAF50;
+    outline: none;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+/* Botón de envío */
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Resultados del escaneo */
+#resultado {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#resultado h2 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
