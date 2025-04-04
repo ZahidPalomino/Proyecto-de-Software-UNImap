@@ -1,0 +1,112 @@
+{
+    "vulnerabilities": [
+        {
+            "service": "ftp",
+            "risk_level": "Alto",
+            "description": "FTP no es seguro, usa texto claro para credenciales y datos.",
+            "mitigation": "Usar SFTP o FTPS."
+        },
+        {
+            "service": "ssh",
+            "risk_level": "Bajo",
+            "description": "SSH es seguro, pero debe configurarse adecuadamente para evitar vulnerabilidades.",
+            "mitigation": "Configurar SSH adecuadamente, deshabilitar acceso root."
+        },
+        {
+            "service": "telnet",
+            "risk_level": "Alto",
+            "description": "Telnet es inseguro y transmite información en texto claro.",
+            "mitigation": "Cerrar Telnet y usar SSH en su lugar."
+        },
+        {
+            "service": "smtp",
+            "risk_level": "Medio",
+            "description": "SMTP puede ser vulnerable a ataques de spam si no está configurado correctamente.",
+            "mitigation": "Configurar restricciones de envío y autenticación en SMTP."
+        },
+        {
+            "service": "rpcbind",
+            "risk_level": "Bajo",
+            "description": "RPCBIND puede exponer información del sistema si está abierto en redes públicas.",
+            "mitigation": "Restringir acceso de RPCBIND a redes internas seguras."
+        },
+        {
+            "service": "ident",
+            "risk_level": "Bajo",
+            "description": "Ident se usa para consultas de autenticación y puede filtrar información sobre usuarios.",
+            "mitigation": "Deshabilitar servicio Ident si no es necesario."
+        },
+        {
+            "service": "netbios-ssn",
+            "risk_level": "Medio",
+            "description": "NetBIOS puede exponer información sobre la red y los dispositivos conectados.",
+            "mitigation": "Limitar acceso de NetBIOS en redes no seguras."
+        },
+        {
+            "service": "microsoft-ds",
+            "risk_level": "Bajo",
+            "description": "Microsoft-DS permite compartir archivos y puede ser vulnerable en redes abiertas.",
+            "mitigation": "Restringir acceso a puertos 445 en redes públicas."
+        },
+        {
+            "service": "exec",
+            "risk_level": "Medio",
+            "description": "El servicio EXEC puede ser explotado para ejecutar comandos remotamente.",
+            "mitigation": "Deshabilitar servicio EXEC si no es necesario."
+        },
+        {
+            "service": "login",
+            "risk_level": "Medio",
+            "description": "LOGIN permite autenticación remota y puede exponer credenciales en texto claro.",
+            "mitigation": "Deshabilitar servicio LOGIN o usar métodos de autenticación seguros."
+        },
+        {
+            "service": "shell",
+            "risk_level": "Medio",
+            "description": "SHELL puede ser vulnerable a la ejecución de comandos no autorizados.",
+            "mitigation": "Deshabilitar el servicio SHELL en redes no seguras."
+        },
+        {
+            "service": "imap",
+            "risk_level": "Bajo",
+            "description": "IMAP permite acceso remoto al correo y puede exponer credenciales si no se usa SSL.",
+            "mitigation": "Configurar IMAP con SSL para asegurar la transmisión de datos."
+        },
+        {
+            "service": "mysql",
+            "risk_level": "Medio",
+            "description": "MySQL expone una interfaz de base de datos y puede ser vulnerable si no está adecuadamente protegido.",
+            "mitigation": "Configurar MySQL para aceptar conexiones solo desde IP autorizadas y usar contraseñas fuertes."
+        },
+        {
+            "service": "imaps",
+            "risk_level": "Bajo",
+            "description": "IMAPS es una versión segura de IMAP que usa SSL/TLS, generalmente seguro.",
+            "mitigation": "Asegurarse de que las configuraciones de SSL/TLS estén actualizadas."
+        },
+        {
+            "service": "http",
+            "risk_level": "Bajo",
+            "description": "HTTP es inseguro ya que transmite datos en texto claro.",
+            "mitigation": "Considerar migrar a HTTPS para mejorar la seguridad."
+        },
+        {
+            "service": "socks5",
+            "risk_level": "Bajo",
+            "description": "SOCKS5 es un proxy que puede ser vulnerable si no está protegido.",
+            "mitigation": "Configurar autenticación y restricciones de acceso en el proxy SOCKS5."
+        },
+        {
+            "service": "tcpwrapped",
+            "risk_level": "Bajo",
+            "description": "TCP Wrapped indica que el servicio está protegido detrás de TCP Wrappers.",
+            "mitigation": "Asegurarse de que TCP Wrappers esté configurado adecuadamente para restringir el acceso."
+        },
+        {
+            "service": "scp-config",
+            "risk_level": "Bajo",
+            "description": "SCP-Config puede exponer configuración si no está protegido.",
+            "mitigation": "Limitar el acceso a SCP-Config y asegurar autenticación fuerte."
+        }
+    ]
+}
