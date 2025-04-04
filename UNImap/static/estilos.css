@@ -1,95 +1,236 @@
-/* Fondo de pantalla */
+/* Estilo general */
 body {
-    background: url('background.jpg') no-repeat center center/cover;
-    font-family: Arial, sans-serif;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    padding: 20px;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
 }
 
-/* Fondo oscuro para el formulario */
-.background {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-}
-
-/* Contenedor del formulario */
+/* Contenedor principal */
 .container {
-    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
     width: 100%;
+    height: auto;
+    
 }
 
-/* Título */
-h1 {
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    width: 90%;
+    
+
+}
+
+.header h1 {
+    font-size: 2em;
+    font-family: 'Montserrat', sans-serif;
+    color: #003366;
+}
+
+/* Logo */
+.logo img {
+    width: 120px;
+    height: auto;
+}
+
+/* Contenedor 1 (Formulario y Parte A) */
+.contenedor-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 50px;
+    flex-wrap: wrap; /* Para que se ajuste en pantallas pequeñas */
+    justify-content: space-between;
+}
+
+.form-container,
+.informacion.parteA {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    width: 100%; /* Cambiar a 100% para pantallas pequeñas */
+    max-width: 300px; /* Limitar el ancho máximo */
+    height: auto; /* Dejar que la altura se ajuste automáticamente */
+    margin-left: 10%;
+    margin-right: 10%;
+    align-items: center;
     text-align: center;
-    margin-bottom: 20px;
-    font-size: 28px;
+    font-family: 'Montserrat', sans-serif;
+}
+.informacion.parteA h2 {
+    color:#003366;
 }
 
-/* Campos de entrada */
 .input-field {
     margin-bottom: 20px;
 }
 
-label {
+.input-field label {
     display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-input[type="text"],
-input[type="email"],
-select {
+.input-field input,
+.input-field select {
     width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+
 }
 
-input::placeholder {
-    color: #ddd;
-}
-
-/* Efecto de enfoque */
-input:focus,
-select:focus {
-    border: 2px solid #4CAF50;
-    outline: none;
-    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
-}
-
-/* Botón de envío */
 button {
-    width: 100%;
+    background-color: #594caf;
+    color: white;
     padding: 15px;
-    background-color: #4CAF50;
-    color: #fff;
-    font-size: 18px;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    width: 100%;
+    font-size: 1.1em;
 }
 
 button:hover {
     background-color: #45a049;
 }
 
-/* Resultados del escaneo */
-#resultado {
+/* Contenedor 2 (Imagen y Parte B) */
+.contenedor-2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 20px;
+    flex-wrap: wrap; /* Para ajustarse en pantallas pequeñas */
+}
+
+.imagen img {
+    width: 60%;
+    height: 80%;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+.informacion.parteB {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    text-align: justify;
+    justify-content: center;
+    align-items: center;
+    width: 100%;  /* Cambiar a 100% para pantallas pequeñas */
+    max-width: 500px;  /* Limitar el ancho máximo */
+    height: auto; /* Dejar que la altura se ajuste automáticamente */
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Contenedor 3 (Parte C y Parte D) */
+.contenedor-3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 50px;
+    padding: 50px;
+    flex-wrap: wrap; /* Para que se ajuste a pantallas pequeñas */
+}
+
+.informacion.parteC,
+.informacion.parteD { 
+    display: flex;               
+    flex-direction: column;      
+    justify-content: center;     
+    align-items: center;         
+    padding: 50px;  
+    background-color: #3957db5e;
+    width: 100%;  /* Cambiar a 100% para pantallas pequeñas */
+    max-width: 300px; /* Limitar el ancho máximo */
+    height: auto; /* Dejar que la altura se ajuste automáticamente */
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.informacion.parteC a,
+.informacion.parteD a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.informacion.parteC a,
+.informacion.parteD a{
+    margin-left: auto; /* Esto alinea el enlace a la derecha */
+    align-self: flex-start; /* O también puedes usar flex-end si quieres alinearlo completamente al final */
+}
+
+.informacion.parteC a:hover,
+.informacion.parteD a:hover {
+    text-decoration: underline;
+}
+
+/* Contenedor 4 (Parte E) */
+.contenedor-4 {
+    display: flex;
+    justify-content: center;
     margin-top: 20px;
     text-align: center;
 }
 
-#resultado h2 {
-    color: #4CAF50;
-    margin-bottom: 10px;
+.informacion.parteE {
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    display: flex;               
+    flex-direction: column;      
+    justify-content: center;     
+    align-items: center;         
+    padding: 50px;  
+    width: 100%;  /* Cambiar a 100% para pantallas pequeñas */
+    max-width: 800px; /* Limitar el ancho máximo */
+    height: auto; /* Dejar que la altura se ajuste automáticamente */
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .contenedor-1,
+    .contenedor-2,
+    .contenedor-3 {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-container,
+    .informacion.parteA,
+    .informacion.parteB,
+    .informacion.parteC,
+    .informacion.parteD,
+    .informacion.parteE {
+        width: 100%;
+        max-width: 100%;  /* Hacer los elementos más flexibles */
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo img {
+        width: 100px;
+    }
 }
